@@ -1,0 +1,30 @@
+<div class="login-popup">
+  <div class="login-popup__heading">Sign in</div>
+  <div class="login-popup__container">
+    <div class="login-popup__sso">
+      <button class="login-popup__sso__facebook">Facebook</button>
+      <button class="login-popup__sso__twitter">Twitter</button>
+    </div>
+    <div class="login-popup__custom">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input
+          type="text"
+          placeholder="Email / Login"
+          id="email"
+          formControlName="email"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          id="password"
+          formControlName="password"
+        />
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox">Remember me</label>
+        <button type="submit" [disabled]="loginForm.invalid">Sign up</button>
+      </form>
+      <a class="login-popup__custom__forgot"></a>
+      <button class="login-popup__custom__register">Register</button>
+    </div>
+  </div>
+</div>

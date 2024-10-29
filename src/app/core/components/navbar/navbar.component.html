@@ -1,0 +1,16 @@
+<div class="navbar__menu">
+  <a
+    *ngFor="let item of navItems"
+    (mouseenter)="onHover(item)"
+    (mouseleave)="onHover()"
+  >
+    <navbar-item [item]="item" [activeItem]="acitveNavItem"></navbar-item>
+  </a>
+  <!-- <ng-container *ngIf="acitveNavItem">
+    <div class="navbar__submenu">
+      <a *ngFor="let subItem of acitveNavItem?.subCategories">{{
+        subItem.name
+      }}</a>
+    </div>
+  </ng-container> -->
+</div>

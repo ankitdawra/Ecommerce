@@ -1,0 +1,22 @@
+@mixin media-breakpoint-up($name) {
+  $breakpoint: map-get($breakpoints, $name);
+
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($name) {
+  $breakpoint: map-get($breakpoints, $name);
+
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin container-lg {
+  @include media-breakpoint-up(md) {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
