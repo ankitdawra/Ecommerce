@@ -1,0 +1,37 @@
+.header {
+  &__top__container,
+  &__main,
+  navbar {
+    @include container-lg;
+
+    padding: 20px 0;
+    display: block;
+  }
+
+  &__top {
+    border-bottom: 2px solid #000;
+
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__data,
+  &__actions {
+    display: flex;
+    gap: 50px;
+
+    > span {
+      display: flex;
+      gap: 20px;
+      cursor: pointer;
+      position: relative;
+    }
+  }
+
+  &__nav {
+    background-color: black;
+  }
+}

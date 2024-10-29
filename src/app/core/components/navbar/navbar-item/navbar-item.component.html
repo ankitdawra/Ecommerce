@@ -1,0 +1,11 @@
+<ng-container *ngIf="item">
+  {{ item.name }}
+  <ng-container *ngIf="activeItem && activeItem.id === item.id">
+    <div class="navbar__submenu">
+      <navbar [isSubNav]="true" [navList]="activeItem?.subCategories"></navbar>
+      <!-- <a *ngFor="let subItem of activeItem?.subCategories">
+        {{ subItem.name }}
+      </a> -->
+    </div>
+  </ng-container>
+</ng-container>
