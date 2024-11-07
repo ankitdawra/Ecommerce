@@ -1,0 +1,25 @@
+.banner-lg {
+  position: relative;
+
+  &-info {
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    width: 50%;
+    height: 100%;
+    padding: 50px;
+    padding-top: 70px;
+    color: #FFFFFF;
+    box-sizing: border-box;
+  }
+
+  &-tile {
+    font-size: 4em;
+    text-transform: uppercase;
+  }
+
+  &-desc {
+    font-size: 1.5em;
+    text-transform: uppercase;
+  }
+}

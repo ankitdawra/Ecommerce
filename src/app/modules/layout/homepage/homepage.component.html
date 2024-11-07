@@ -1,0 +1,6 @@
+<div>
+  <carousel [items]="items" [template]="banner"> </carousel>
+  <ng-template #banner let-item="item">
+    <large-banner [item]="item"></large-banner>
+  </ng-template>
+</div>

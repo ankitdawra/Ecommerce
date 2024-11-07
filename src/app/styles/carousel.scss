@@ -1,0 +1,13 @@
+.carousel-container {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-x: scroll;
+
+  &-item {
+    display: inline-block;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s linear;
+    white-space: initial;
+  }
+}

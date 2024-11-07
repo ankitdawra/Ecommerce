@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from '../services';
+import { login } from '../../user';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'login-popup',
@@ -8,7 +9,7 @@ import { LoginService } from '../services';
 })
 export class LoginPopupComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private loginService: LoginService) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -20,9 +21,12 @@ export class LoginPopupComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
-      this.loginService.login(this.loginForm.value).subscribe((res) => {
-        console.log(res);
-      });
+      this.store.dispatch(login({ data: this.loginForm.value }));
+      // this.userService.login(this.loginForm.value).subscribe((res: any) => {
+      //   if (res.access_token) {
+      //     localStorage.setItem('access_token', res.access_token);
+      //   }
+      // });
     }
   }
 }
