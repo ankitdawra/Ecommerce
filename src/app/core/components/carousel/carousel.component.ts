@@ -25,14 +25,15 @@ export class CarouselComponent {
     ].style.opacity = 0;
     if (direction === 'left' && this.activeItem > 0) {
       this.activeItem -= 1;
-    } else if (
-      direction === 'right' &&
-      this.activeItem < this.items.length - 1
-    ) {
-      this.activeItem += 1;
+    } else if (direction === 'right') {
+      if (this.activeItem < this.items.length - 1) {
+        this.activeItem += 1;
+      } else {
+        this.activeItem = 0;
+      }
     }
     this.carouselContainer.nativeElement.scrollLeft =
-      this.totalWidth * this.activeItem;
+      (this.totalWidth / this.items?.length) * this.activeItem;
     this.carouselContainer.nativeElement.children[
       this.activeItem
     ].style.opacity = 1;

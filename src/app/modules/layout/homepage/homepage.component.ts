@@ -22,7 +22,13 @@ export class HomePageComponent implements OnInit {
       },
       {
         title: 'HEADING 2',
+        desc: 'Shop+ SUPER ELEGANT SHOP',
         src: 'assets/homepage-bg2.jpg',
+      },
+      {
+        title: 'WE DESIGNED ELEGANT AND FUNCTIONAL SHOP',
+        desc: 'Shop+ beautiful and functional shop, we included many options and shortcodes. This package has everythink if you need to start your business',
+        src: 'assets/homepage-bg3.jpg',
       },
     ];
   }

@@ -1,13 +1,26 @@
-.carousel-container {
-  max-width: 100%;
-  white-space: nowrap;
-  overflow-x: scroll;
+carousel {
+  display: block;
+  position: relative;
 
-  &-item {
-    display: inline-block;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.5s linear;
-    white-space: initial;
+  .carousel-container {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow-x: scroll;
+
+    &-item {
+      display: inline-block;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.5s linear;
+      white-space: initial;
+    }
+
+    &-scroll-btns {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
   }
 }
