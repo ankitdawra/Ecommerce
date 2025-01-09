@@ -3,7 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { HeaderModule, UserModule, LayoutModule } from './modules';
+import {
+  HeaderModule,
+  UserModule,
+  LayoutModule,
+  ProductModule,
+} from './modules';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -28,6 +33,7 @@ import { StoreModule } from '@ngrx/store';
     /** Feature modules */
     HeaderModule,
     UserModule,
+    ProductModule,
   ],
   providers: [
     {

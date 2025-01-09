@@ -13,6 +13,7 @@ import {
   PopoverComponent,
   LargeBannerComponent,
   CarouselComponent,
+  ButtonComponent,
 } from './components';
 import { SearchService, HttpService } from './services';
 
@@ -25,6 +26,7 @@ import { SearchService, HttpService } from './services';
     NavbarItemComponent,
     LargeBannerComponent,
     CarouselComponent,
+    ButtonComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, HttpClientModule],
   providers: [SearchService, HttpService],
@@ -35,6 +37,7 @@ import { SearchService, HttpService } from './services';
     PopoverComponent,
     LargeBannerComponent,
     CarouselComponent,
+    ButtonComponent,
   ],
 })
 export class CoreModule {}

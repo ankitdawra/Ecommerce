@@ -2,11 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './homepage';
 import { CoreModule } from '@app/core/core.module';
+import { ProductPageComponent } from './productpage';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePageComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'product/:id',
+    component: ProductPageComponent,
   },
   // {
   //   path: 'login',
@@ -18,9 +25,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CoreModule, RouterModule.forRoot(routes)],
+  imports: [CommonModule, CoreModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  declarations: [HomePageComponent],
+  declarations: [HomePageComponent, ProductPageComponent],
   providers: [],
 })
 export class LayoutModule {}
