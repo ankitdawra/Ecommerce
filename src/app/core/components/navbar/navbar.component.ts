@@ -70,7 +70,7 @@ export class NavbarComponent implements OnInit {
       },
       { id: 3, name: 'Contact', link: '/contact' },
     ];
-    this.acitveNavItem = this.initialNavItems[0];
+    // this.acitveNavItem = this.initialNavItems[0];
     this.cd.markForCheck();
   }
 

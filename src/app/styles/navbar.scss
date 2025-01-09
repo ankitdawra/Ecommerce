@@ -9,7 +9,7 @@ navbar {
 
     > a {
       flex: 1;
-      color: #DCCC99;
+      color: $primary-color;
       text-align: center;
       text-transform: uppercase;
       text-decoration: none;
@@ -19,7 +19,7 @@ navbar {
       position: relative;
 
       &:hover {
-        background-color: #DCCC99;
+        background-color: $primary-color;
         color: #FFF;
       }
     }

@@ -1,0 +1,11 @@
+<!-- [ngStyle]="{ 'background-image': 'url(' + item.src + ')' }" -->
+<div class="banner-lg">
+  <img [src]="item.src" alt="{{ item.title }}" width="100%" height="100%" />
+  <div class="banner-lg-info">
+    <div class="banner-lg-tile">{{ item.title }}</div>
+    <div class="banner-lg-desc">{{ item.desc }}</div>
+    <button type="button">
+      <span>{{ item.button?.text }}</span>
+    </button>
+  </div>
+</div>

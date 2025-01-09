@@ -4,6 +4,8 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
+import { currentUser, getCurrentUser } from '../user';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'header',
@@ -12,9 +14,18 @@ import {
 })
 export class HeaderComponent implements OnInit {
   loginPopup = false;
-  constructor(private cd: ChangeDetectorRef) {}
+  currentUser$ = this.store.select(currentUser);
+  constructor(private cd: ChangeDetectorRef, private store: Store) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(getCurrentUser());
+    this.currentUser$.subscribe((user) => {
+      console.log(user);
+    });
+    // this.userService.getCurrentUser().subscribe((user) => {
+    //   console.log(user);
+    // });
+  }
 
   toggleLoginPopup(e: Event): void {
     e.stopPropagation();

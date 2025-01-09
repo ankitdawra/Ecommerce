@@ -19,8 +19,10 @@
           id="password"
           formControlName="password"
         />
-        <input type="checkbox" id="checkbox" />
-        <label for="checkbox">Remember me</label>
+        <div class="login-popup__custom--remember">
+          <input type="checkbox" id="checkbox" />
+          <label for="checkbox">Remember me</label>
+        </div>
         <button type="submit" [disabled]="loginForm.invalid">Sign up</button>
       </form>
       <a class="login-popup__custom__forgot"></a>

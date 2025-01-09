@@ -1,0 +1,21 @@
+<div class="carousel-container" *ngIf="items.length" #carouselContainer>
+  <div class="carousel-container-item" *ngFor="let item of items">
+    <ng-container
+      *ngTemplateOutlet="template; context: { item: item }"
+    ></ng-container>
+  </div>
+</div>
+<div class="carousel-container-scroll-btns">
+  <button
+    class="carousel-container-scroll-btn"
+    (click)="scrollCarousel('left')"
+  >
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button
+    class="carousel-container-scroll-btn"
+    (click)="scrollCarousel('right')"
+  >
+    <i class="fas fa-chevron-right"></i>
+  </button>
+</div>

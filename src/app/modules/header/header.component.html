@@ -12,14 +12,20 @@
         </div>
       </div>
       <div class="header__actions">
-        <span (click)="toggleLoginPopup($event)">
-          Login
-          <ng-container *ngIf="loginPopup">
-            <popover (hide)="hidePopup()">
-              <login-popup></login-popup>
-            </popover>
-          </ng-container>
-        </span>
+        <ng-container *ngIf="currentUser$ | async as user; else login">
+          <span>{{ user.name }}</span>
+          <span>Logout</span>
+        </ng-container>
+        <ng-template #login>
+          <span (click)="toggleLoginPopup($event)">
+            Login
+            <ng-container *ngIf="loginPopup">
+              <popover (hide)="hidePopup()">
+                <login-popup></login-popup>
+              </popover>
+            </ng-container>
+          </span>
+        </ng-template>
         <span>Wishlist</span>
         <span>Compare</span>
       </div>

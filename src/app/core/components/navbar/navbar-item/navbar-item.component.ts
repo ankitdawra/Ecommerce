@@ -16,6 +16,6 @@ export class NavbarItemComponent implements OnChanges {
   @Input() activeItem?: NavItem | null = null;
 
   ngOnChanges(): void {
-    console.log(this.activeItem);
+    // console.log(this.activeItem);
   }
 }
