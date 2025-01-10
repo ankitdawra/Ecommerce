@@ -1,0 +1,106 @@
+<div class="product" *ngIf="product$ | async as product">
+  <div class="product-navigation">Product Page</div>
+  <div class="product-details">
+    <div class="product-image">
+      <img [src]="product.gallery?.[0]" [alt]="product.name" />
+      <div class="product-image-gallery">
+        <carousel
+          [items]="product.gallery"
+          [template]="productImage"
+        ></carousel>
+        <ng-template #productImage let-image="item">
+          <img [src]="image" />
+        </ng-template>
+        <div *ngFor="let image of product.gallery"></div>
+      </div>
+    </div>
+    <div class="product-info">
+      <div class="product-name">{{ product.name }}</div>
+      <div class="product-availability">
+        <div class="product-price">{{ product.variants[0]?.price }}</div>
+        <div class="product-stock">
+          Availability:
+          <span class="product-stock--status">{{
+            product.variants[0]?.stockStatus
+          }}</span>
+        </div>
+      </div>
+      <div class="product-meta">
+        <div class="product-code">
+          Product Code:
+          <span class="product-meta-value">{{
+            product.variants[0]?.code
+          }}</span>
+        </div>
+        <div class="product-tags">
+          Product Tags:
+          <span *ngFor="let tag of product.tags" class="product-meta-value">{{
+            tag
+          }}</span>
+        </div>
+        <div class="product-category">
+          Category:
+          <span class="product-meta-value">{{ product.category }}</span>
+        </div>
+      </div>
+      <div class="product-description">
+        <div>{{ product.description }}</div>
+        <div class="product-features">
+          <div class="product-feature" *ngFor="let feature of product.features">
+            <div class="product-feature-value">{{ feature }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-variants">
+        <div class="product-variants-selected" *ngIf="selectedVariant">
+          <span>COLOR: {{ selectedVariant?.color }}</span>
+          <span>Availability: {{ selectedVariant?.stockStatus }}</span>
+        </div>
+        <div class="product-variants-selector">
+          <div *ngFor="let variant of product.variants">
+            <div
+              *ngIf="variant.color"
+              (click)="selectVariant(variant)"
+              class="product-variants-selector-color"
+              [style.background-color]="variant.color"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-variants">
+        Select Size
+        <div class="product-variants-selector">
+          <div *ngFor="let variant of product.variants">
+            <div
+              *ngIf="variant.size"
+              (click)="selectVariant(variant)"
+              class="product-variants-selector-color"
+            >
+              {{ variant.size }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-actions">
+        <div class="product-quantity-selector">
+          <app-button type="secondary" onClick="updateQuantity('REMOVE')"
+            >-</app-button
+          >
+          <app-button type="secondary">{{ currQuantity }}</app-button>
+          <app-button type="secondary" onClick="updateQuantity('ADD')"
+            >+</app-button
+          >
+        </div>
+        <app-button type="primary" onClick="onAddToCart()">
+          Add to cart
+        </app-button>
+        <div class="product-add-to-wishlist">
+          <app-button>Wishlist</app-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

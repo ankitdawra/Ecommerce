@@ -1,0 +1,33 @@
+.login-popup {
+  &__heading {
+    padding: 10px;
+    border-bottom: 1px solid #d7d9db;
+    background: #F5F5F5;
+    margin: 0;
+  }
+
+  &__container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      input {
+        height: 20px;
+        padding: 0 10px;
+      }
+    }
+  }
+
+  &__sso {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+}

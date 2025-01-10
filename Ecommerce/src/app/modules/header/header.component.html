@@ -1,0 +1,42 @@
+<div class="header">
+  <div class="header__top">
+    <div class="header__top__container">
+      <div class="header__data">
+        <div>
+          <span> English French </span>
+          <span> USD EUR </span>
+        </div>
+        <div>
+          <span class="header__contact__number">+ 1 (800) 2364 332 23 16</span>
+          <span class="header__contact__email">your@email.com</span>
+        </div>
+      </div>
+      <div class="header__actions">
+        <ng-container *ngIf="currentUser$ | async as user; else login">
+          <span>{{ user.name }}</span>
+          <span>Logout</span>
+        </ng-container>
+        <ng-template #login>
+          <span (click)="toggleLoginPopup($event)">
+            Login
+            <ng-container *ngIf="loginPopup">
+              <popover (hide)="hidePopup()">
+                <login-popup></login-popup>
+              </popover>
+            </ng-container>
+          </span>
+        </ng-template>
+        <span>Wishlist</span>
+        <span>Compare</span>
+      </div>
+    </div>
+  </div>
+  <div class="header__main">
+    <search></search>
+    <!-- <app-logo></app-logo> -->
+    <!-- <app-mini-cart></app-mini-cart> -->
+  </div>
+  <div class="header__nav">
+    <navbar></navbar>
+  </div>
+</div>

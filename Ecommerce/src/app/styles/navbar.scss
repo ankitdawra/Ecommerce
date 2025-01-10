@@ -1,0 +1,48 @@
+navbar { 
+  padding: 0 !important;
+}
+
+.navbar {
+  &__menu, &__submenu {
+    display: flex;
+    justify-content: space-around;
+
+    > a {
+      flex: 1;
+      color: $primary-color;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.2s;
+      cursor: pointer;
+      padding: 20px 0;
+      position: relative;
+
+      &:hover {
+        background-color: $primary-color;
+        color: #FFF;
+      }
+    }
+  }
+
+  &__submenu {
+    position: absolute;
+    width: 100%;
+    flex-direction: column;
+    background-color: #000;
+    top: 59px;
+
+    navbar {
+      margin: unset;
+    }
+  }
+
+  &__submenu &__menu {
+    flex-direction: column;
+  }
+
+  &__submenu &__menu &__submenu {
+    left: 100%;
+    top: 0px;
+  }
+}
