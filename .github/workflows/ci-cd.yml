@@ -32,8 +32,8 @@ jobs:
 
       - name: Build and push Ecommerce backend
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/c:latest ./Microservices/Ecommerce-Backend
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest ./Microservices/Ecommerce-Backend
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest
 
       - name: Build and push Product Microservice
         run: |
