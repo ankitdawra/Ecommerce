@@ -79,7 +79,7 @@
             }
           },
           "options": {
-            "port": 4000
+            "port": 8080
           },
           "defaultConfiguration": "development"
         },

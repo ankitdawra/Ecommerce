@@ -1,12 +1,12 @@
-FROM node:lts-alpine3.17
-ENV NODE_ENV=5000
-
+FROM node:18 AS build
 WORKDIR /app
-
-COPY ["package.json", "package-lock.json*", "./"]
-
+COPY package.json package-lock.json ./
 RUN npm install
-
 COPY . .
-EXPOSE 5000
-CMD ["npm", "start"]
+RUN npm run build --prod
+
+# Use Nginx to serve the built Angular app
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
