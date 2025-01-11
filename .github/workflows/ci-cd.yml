@@ -27,12 +27,12 @@ jobs:
       # Step 4: Build and push images
       - name: Build and push Ecommerce storefront
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommmerce:latest ../Ecommmerce
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommmerce:latest
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest ./Ecommerce
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest
 
       - name: Build and push Ecommerce backend
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/c:latest ../Microservices/Ecommmerce-Backend
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/c:latest ./Microservices/Ecommerce-Backend
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest
 
       - name: Build and push Product Microservice
