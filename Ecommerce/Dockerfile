@@ -15,13 +15,13 @@ WORKDIR /app
 RUN npm install -g http-server
 
 # Copy the built Angular files from the previous stage
-COPY --from=build /dist/ecommerce /dist
+COPY --from=build /app/dist/ecommerce /app/dist
 
 # Expose port 8080 for the HTTP server
 EXPOSE 4000
 
 # Command to run the http-server to serve the Angular app
-CMD ["http-server", "/dist", "-p", "4000"]
+CMD ["http-server", "/app/dist", "-p", "4000"]
 
 
 # Use Nginx to serve the built Angular app
