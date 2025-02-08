@@ -5,3 +5,4 @@ export * from './popover';
 export * from './large-banner';
 export * from './carousel';
 export * from './button';
+export * from './seo';

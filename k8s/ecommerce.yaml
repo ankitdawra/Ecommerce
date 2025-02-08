@@ -15,6 +15,7 @@ spec:
       containers:
         - name: ecommerce
           image: ankitdawra/ecommerce:latest
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service

@@ -1,21 +1,17 @@
 <div class="product" *ngIf="product$ | async as product">
-  <div class="product-navigation">Product Page</div>
   <div class="product-details">
     <div class="product-image">
-      <img [src]="product.gallery?.[0]" [alt]="product.name" />
-      <div class="product-image-gallery">
-        <carousel
-          [items]="product.gallery"
-          [template]="productImage"
-        ></carousel>
+      <img [src]="product.images?.[0]" [alt]="product.title" />
+      <div class="product-image-gallery" *ngIf="product.images.length > 1">
+        <carousel [items]="product.images" [template]="productImage"></carousel>
         <ng-template #productImage let-image="item">
           <img [src]="image" />
         </ng-template>
-        <div *ngFor="let image of product.gallery"></div>
+        <div *ngFor="let image of product.images"></div>
       </div>
     </div>
     <div class="product-info">
-      <div class="product-name">{{ product.name }}</div>
+      <div class="product-name">{{ product.title }}</div>
       <div class="product-availability">
         <div class="product-price">{{ product.variants[0]?.price }}</div>
         <div class="product-stock">

@@ -4,16 +4,18 @@ import { HomePageComponent } from './homepage';
 import { CoreModule } from '@app/core/core.module';
 import { ProductPageComponent } from './productpage';
 import { CommonModule } from '@angular/common';
+import { PageComponent } from './page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomePageComponent,
     pathMatch: 'full',
   },
   {
     path: 'product/:id',
     component: ProductPageComponent,
+    data: { title: 'Product Page' },
   },
   // {
   //   path: 'login',

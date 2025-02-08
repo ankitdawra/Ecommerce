@@ -18,7 +18,20 @@ export class AppService {
   //   return this.authenticationClient.send({ cmd: 'getCurrentUser' }, {});
   // }
 
-  getProduct() {
-    return this.productServiceClient.send({ cmd: 'getProduct' }, {});
+  getProducts() {
+    return this.productServiceClient.send({ cmd: 'getProducts' }, {});
+  }
+
+  getProductById(id) {
+    return this.productServiceClient.send({ cmd: 'getProductById' }, id);
+  }
+
+  dumpProducts(products) {
+    console.log('Service');
+    return this.productServiceClient.send({ cmd: 'dumpProducts' }, products);
+  }
+
+  getRelatedProducts(id) {
+    return this.productServiceClient.send({ cmd: 'getRelatedProducts' }, id);
   }
 }

@@ -14,8 +14,9 @@ import {
   LargeBannerComponent,
   CarouselComponent,
   ButtonComponent,
+  SeoComponent,
 } from './components';
-import { SearchService, HttpService } from './services';
+import { SearchService, HttpService, SeoService } from './services';
 
 @NgModule({
   declarations: [
@@ -27,9 +28,10 @@ import { SearchService, HttpService } from './services';
     LargeBannerComponent,
     CarouselComponent,
     ButtonComponent,
+    SeoComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, HttpClientModule],
-  providers: [SearchService, HttpService],
+  providers: [SearchService, HttpService, SeoService],
   exports: [
     FooterComponent,
     NavbarComponent,
@@ -38,6 +40,7 @@ import { SearchService, HttpService } from './services';
     LargeBannerComponent,
     CarouselComponent,
     ButtonComponent,
+    SeoComponent,
   ],
 })
 export class CoreModule {}
