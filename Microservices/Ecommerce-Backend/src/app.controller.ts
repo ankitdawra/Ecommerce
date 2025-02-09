@@ -31,6 +31,11 @@ export class AppController {
   //   return this.appService.getCurrentUser();
   // }
 
+  @Get('/hello')
+  hello() {
+    return 'hello';
+  }
+
   @Get('/products')
   getProducts() {
     return this.appService.getProducts();

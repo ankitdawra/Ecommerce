@@ -8,7 +8,7 @@ import { PageComponent } from './page';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomePageComponent,
     pathMatch: 'full',
   },

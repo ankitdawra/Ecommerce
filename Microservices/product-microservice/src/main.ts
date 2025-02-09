@@ -27,7 +27,7 @@
 
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { Transport } from '@nestjs/microservices';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
@@ -35,7 +35,8 @@ async function bootstrap() {
   app.connectMicroservice({
     transport: Transport.TCP,
     options: {
-      port: 5001,
+      // host: '127.0.0.1',
+      port: 6000,
     },
   });
   // app.useGlobalPipes(
@@ -47,6 +48,6 @@ async function bootstrap() {
   //   }),
   // );
   await app.startAllMicroservices();
-  await app.listen(process.env.PORT ?? 5001);
+  await app.listen(6001);
 }
 bootstrap();

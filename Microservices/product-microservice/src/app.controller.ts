@@ -30,10 +30,9 @@ export class AppController {
   @MessagePattern({ cmd: 'getRelatedProducts' })
   async getRelatedProducts(id) {
     let results = await this.searchService.getRelatedProducts(id);
-    console.log('Results', results);
     if (results.length) {
-      results = await this.appService.getProductsById(results);
+      return await this.appService.getProductsById(results).toArray();
     }
-    return await results.toArray();
+    return results;
   }
 }

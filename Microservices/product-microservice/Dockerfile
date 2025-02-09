@@ -5,5 +5,6 @@ COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-EXPOSE 5001
-CMD ["node", "dist/main"]
+EXPOSE 6000
+CMD ["npm", "run", "start"]
+# CMD ["node", "dist/main"]
