@@ -36,6 +36,8 @@ jobs:
             --build-arg MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
             --build-arg MYSQL_PASS=${{ secrets.MYSQL_PASS }} \
             --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
+            --build-arg MONGO_HOST=${{ secrets.MONGO_HOST }} \
+            --build-arg ELASTIC_HOST=${{ secrets.ELASTIC_HOST }} \
             -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2 ./Microservices/Ecommerce-Backend \
             --no-cache
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2
