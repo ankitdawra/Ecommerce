@@ -66,3 +66,4 @@ jobs:
         run: |
           kubectl apply -f ./k8s/ecommerce.yaml
           kubectl apply -f ./k8s/ecommerce-backend.yaml
+          kubectl apply -f ./k8s/ingress.yaml
