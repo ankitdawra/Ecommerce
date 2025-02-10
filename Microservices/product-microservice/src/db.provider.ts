@@ -8,7 +8,8 @@ export class DatabaseProvider implements OnModuleInit, OnModuleDestroy {
 
   async onModuleInit() {
     console.log('Connecting to Mongo');
-    this.mongoClient = new MongoClient(process.env.MONGO_HOST, {
+    const uri = `mongodb+srv://ankitdawra2025:${process.env.MONGO_PASS}@cluster0.xi7uo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+    this.mongoClient = new MongoClient(uri, {
       serverSelectionTimeoutMS: 30000,
     });
     await this.mongoClient.connect();

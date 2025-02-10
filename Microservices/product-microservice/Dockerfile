@@ -6,12 +6,12 @@ RUN npm install
 COPY . .
 
 # Build args (from GitHub Actions)
-ARG ELASTIC_HOST
-ARG MONGO_HOST
+# ARG ELASTIC_HOST
+ARG MONGO_PASS
 
 # Convert build args to environment variables
-ENV ELASTIC_HOST=$ELASTIC_HOST
-ENV MONGO_HOST=$MONGO_HOST
+# ENV ELASTIC_HOST=$ELASTIC_HOST
+ENV MONGO_PASS=$MONGO_PASS
 
 RUN npm run build
 EXPOSE 6000
