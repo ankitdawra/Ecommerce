@@ -8,12 +8,9 @@ export class DatabaseProvider implements OnModuleInit, OnModuleDestroy {
 
   async onModuleInit() {
     console.log('Connecting to Mongo');
-    this.mongoClient = new MongoClient(
-      'mongodb+srv://ankitdawra2025:xsKcHMLoD0AdFlH1@cluster0.xi7uo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-      {
-        serverSelectionTimeoutMS: 30000,
-      },
-    );
+    this.mongoClient = new MongoClient(process.env.MONGO_HOST, {
+      serverSelectionTimeoutMS: 30000,
+    });
     await this.mongoClient.connect();
     console.log('Connected');
     this.db = this.mongoClient.db('ecomm_db');

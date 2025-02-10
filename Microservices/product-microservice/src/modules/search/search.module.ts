@@ -7,7 +7,7 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     ConfigModule.forRoot(),
     ElasticsearchModule.register({
-      node: process.env.MONGO_HOST,
+      node: process.env.ELASTIC_HOST,
     }),
   ],
   controllers: [],

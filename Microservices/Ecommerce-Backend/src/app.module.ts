@@ -16,10 +16,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.MYSQL_HOST,
-      port: parseInt(process.env.MYSQL_PORT),
-      username: process.env.MYSQL_USERNAME,
+      port: 20955,
+      username: 'avnadmin',
       password: process.env.MYSQL_PASS,
-      database: process.env.MYSQL_DB,
+      database: 'user_microservice',
       autoLoadEntities: true,
       synchronize: true,
     }),
