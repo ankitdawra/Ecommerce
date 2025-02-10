@@ -32,7 +32,7 @@ jobs:
 
       - name: Build and push Ecommerce backend
         run: |
-          docker build \ 
+          docker build \
             --build-arg MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
             --build-arg MYSQL_PASS=${{ secrets.MYSQL_PASS }} \
             -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2 ./Microservices/Ecommerce-Backend \
