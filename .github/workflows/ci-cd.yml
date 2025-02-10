@@ -43,7 +43,7 @@ jobs:
       - name: Build and push Product Microservice
         run: |
           docker build \
-            --build-arg MONGO_HOST=${{ secrets.MONGO_HOST }} \
+            --build-arg MONGO_DB_HOST=${{ secrets.MONGO_DB_HOST }} \
             -t ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2 ./Microservices/product-microservice \
             --no-cache
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2
