@@ -43,7 +43,7 @@ jobs:
 
       - name: Build and push Product Microservice
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2 ./Microservices/product-microservice --no-cache   
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2 ./Microservices/product-microservice --no-cache
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2
 
       # Step 5: Set up GCP and deploy to Kubernetes
