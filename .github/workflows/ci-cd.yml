@@ -24,21 +24,21 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      # Step 4: Build and push images
-      # - name: Build and push Ecommerce storefront
-      #   run: |
-      #     docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest2 ./Ecommerce --no-cache
-      #     docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest2
+      Step 4: Build and push images
+      - name: Build and push Ecommerce storefront
+        run: |
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest2 ./Ecommerce --no-cache
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest2
 
-      # - name: Build and push Ecommerce backend
-      #   run: |
-      #     docker build \
-      #       --build-arg MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
-      #       --build-arg MYSQL_PASS=${{ secrets.MYSQL_PASS }} \
-      #       --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
-      #       -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2 ./Microservices/Ecommerce-Backend \
-      #       --no-cache
-      #     docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2
+      - name: Build and push Ecommerce backend
+        run: |
+          docker build \
+            --build-arg MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
+            --build-arg MYSQL_PASS=${{ secrets.MYSQL_PASS }} \
+            --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
+            -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2 ./Microservices/Ecommerce-Backend \
+            --no-cache
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2
 
       - name: Build and push Product Microservice
         run: |
@@ -64,4 +64,5 @@ jobs:
 
       - name: Apply Kubernetes Manifests
         run: |
+          kubectl apply -f ./k8s/ecommerce.yaml
           kubectl apply -f ./k8s/ecommerce-backend.yaml
