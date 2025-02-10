@@ -33,19 +33,19 @@ jobs:
       - name: Build and push Ecommerce backend
         run: |
           docker build \
-            --build-arg MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
-            --build-arg MYSQL_PASS=${{ secrets.MYSQL_PASS }} \
-            -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2 ./Microservices/Ecommerce-Backend \
-            --no-cache
+          --build-arg MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
+          --build-arg MYSQL_PASS=${{ secrets.MYSQL_PASS }} \
+          -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2 ./Microservices/Ecommerce-Backend \
+          --no-cache
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:latest2
 
       - name: Build and push Product Microservice
         run: |
           docker build \
-            --build-arg MONGO_HOST=${{ secrets.MONGO_HOST }} \
-            --build-arg ELASTIC_HOST=${{ secrets.ELASTIC_HOST }} \
-            -t ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2 ./Microservices/product-microservice \
-            --no-cache
+          --build-arg MONGO_HOST=${{ secrets.MONGO_HOST }} \
+          --build-arg ELASTIC_HOST=${{ secrets.ELASTIC_HOST }} \
+          -t ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2 ./Microservices/product-microservice \
+          --no-cache
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2
 
       # Step 5: Set up GCP and deploy to Kubernetes
