@@ -7,7 +7,7 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     ConfigModule.forRoot(),
     ElasticsearchModule.register({
-      node: process.env.ELASTIC_HOST,
+      node: `https://m6ppya11lz:${process.env.ELASTIC_PASS}@elastic-cluster-2572137967.us-east-1.bonsaisearch.net:443`,
     }),
   ],
   controllers: [],

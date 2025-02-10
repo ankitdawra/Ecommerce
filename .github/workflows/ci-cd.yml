@@ -44,6 +44,7 @@ jobs:
         run: |
           docker build \
             --build-arg MONGO_PASS=${{ secrets.MONGO_PASS }} \
+            --build-arg ELASTIC_PASS=${{ secrets.ELASTIC_PASS }} \
             -t ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2 ./Microservices/product-microservice \
             --no-cache
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:latest2
