@@ -25,10 +25,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       # Step 4: Build and push images
-      # - name: Build and push Ecommerce storefront
-      #   run: |
-      #     docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest2 ./Ecommerce --no-cache
-      #     docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest2
+      - name: Build and push Ecommerce storefront
+        run: |
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest2 ./Ecommerce --no-cache
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:latest2
 
       - name: Build and push Ecommerce backend
         run: |
