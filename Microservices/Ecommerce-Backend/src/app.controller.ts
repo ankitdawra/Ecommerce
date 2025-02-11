@@ -13,7 +13,7 @@ import { catchError, throwError } from 'rxjs';
 import { UserDTO } from './types/user.type';
 import { products } from './dump';
 
-@Controller('api')
+@Controller()
 export class AppController {
   constructor(private appService: AppService) {}
 
@@ -36,28 +36,28 @@ export class AppController {
     return true;
   }
 
-  @Get('/hello')
+  @Get('/api/hello')
   hello() {
     return 'hello';
   }
 
-  @Get('/products')
+  @Get('/api/products')
   getProducts() {
     return this.appService.getProducts();
   }
 
-  @Get('/product/:id')
+  @Get('/api/product/:id')
   getProductById(@Param('id') id) {
     return this.appService.getProductById(Number(id));
   }
 
-  @Post('/dumpProducts')
+  @Post('/api/dumpProducts')
   dumpProducts() {
     console.log('Dumping productss');
     return this.appService.dumpProducts(products);
   }
 
-  @Get('/getRelatedProducts/:id')
+  @Get('/api/getRelatedProducts/:id')
   getRelatedProducts(@Param('id') id) {
     return this.appService.getRelatedProducts(id);
   }
