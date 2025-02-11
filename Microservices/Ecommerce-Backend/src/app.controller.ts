@@ -36,6 +36,11 @@ export class AppController {
     return true;
   }
 
+  @Get('/hello')
+  hello() {
+    return 'hello';
+  }
+
   @Get('/products')
   getProducts() {
     return this.appService.getProducts();

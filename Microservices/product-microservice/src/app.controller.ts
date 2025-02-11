@@ -10,6 +10,11 @@ export class AppController {
     private searchService: SearchService,
   ) {}
 
+  @Get('/')
+  healthCheck() {
+    return true;
+  }
+
   @MessagePattern({ cmd: 'getProducts' })
   getProducts() {
     return this.appService.getProducts();
