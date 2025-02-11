@@ -13,7 +13,7 @@ import { catchError, throwError } from 'rxjs';
 import { UserDTO } from './types/user.type';
 import { products } from './dump';
 
-@Controller()
+@Controller('api')
 export class AppController {
   constructor(private appService: AppService) {}
 
