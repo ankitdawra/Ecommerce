@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
         - name: ecommerce-backend
-          image: ankitdawra/ecommerce-backend:latest2
+          image: ankitdawra/ecommerce-backend:IMAGE_TAG
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
         - name: product-microservice
-          image: ankitdawra/product-microservice:latest2
+          image: ankitdawra/product-microservice:IMAGE_TAG
           imagePullPolicy: Always
           ports:
             - containerPort: 6000
