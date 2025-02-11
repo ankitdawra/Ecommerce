@@ -22,36 +22,36 @@ jobs:
         run: echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
 
       # Step 3: Log in to DockerHub
-      - name: Log in to DockerHub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+      # - name: Log in to DockerHub
+      #   uses: docker/login-action@v2
+      #   with:
+      #     username: ${{ secrets.DOCKER_HUB_USERNAME }}
+      #     password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       # Step 4: Build and push images
-      - name: Build and push Ecommerce storefront
-        run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:${BUILD_NUMBER} ./Ecommerce --no-cache
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:${BUILD_NUMBER}
+      # - name: Build and push Ecommerce storefront
+      #   run: |
+      #     docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:${BUILD_NUMBER} ./Ecommerce --no-cache
+      #     docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce:${BUILD_NUMBER}
 
-      - name: Build and push Ecommerce backend
-        run: |
-          docker build \
-            --build-arg MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
-            --build-arg MYSQL_PASS=${{ secrets.MYSQL_PASS }} \
-            --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
-            -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:${BUILD_NUMBER} ./Microservices/Ecommerce-Backend \
-            --no-cache
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:${BUILD_NUMBER}
+      # - name: Build and push Ecommerce backend
+      #   run: |
+      #     docker build \
+      #       --build-arg MYSQL_HOST=${{ secrets.MYSQL_HOST }} \
+      #       --build-arg MYSQL_PASS=${{ secrets.MYSQL_PASS }} \
+      #       --build-arg JWT_SECRET=${{ secrets.JWT_SECRET }} \
+      #       -t ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:${BUILD_NUMBER} ./Microservices/Ecommerce-Backend \
+      #       --no-cache
+      #     docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ecommerce-backend:${BUILD_NUMBER}
 
-      - name: Build and push Product Microservice
-        run: |
-          docker build \
-            --build-arg MONGO_PASS=${{ secrets.MONGO_PASS }} \
-            --build-arg ELASTIC_PASS=${{ secrets.ELASTIC_PASS }} \
-            -t ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:${BUILD_NUMBER} ./Microservices/product-microservice \
-            --no-cache
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:${BUILD_NUMBER}
+      # - name: Build and push Product Microservice
+      #   run: |
+      #     docker build \
+      #       --build-arg MONGO_PASS=${{ secrets.MONGO_PASS }} \
+      #       --build-arg ELASTIC_PASS=${{ secrets.ELASTIC_PASS }} \
+      #       -t ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:${BUILD_NUMBER} ./Microservices/product-microservice \
+      #       --no-cache
+      #     docker push ${{ secrets.DOCKER_HUB_USERNAME }}/product-microservice:${BUILD_NUMBER}
 
       # Step 5: Set up GCP and deploy to Kubernetes
       - name: Set up GCP
@@ -73,6 +73,4 @@ jobs:
 
       - name: Apply Kubernetes Manifests
         run: |
-          kubectl apply -f ./k8s/ecommerce.yaml
-          kubectl apply -f ./k8s/ecommerce-backend.yaml
           kubectl apply -f ./k8s/ingress.yaml
