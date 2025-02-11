@@ -31,9 +31,9 @@ export class AppController {
   //   return this.appService.getCurrentUser();
   // }
 
-  @Get('/hello')
-  hello() {
-    return 'hello';
+  @Get('/')
+  healthCheck() {
+    return true;
   }
 
   @Get('/products')
