@@ -5,6 +5,8 @@ import { CoreModule } from '@app/core/core.module';
 import { ProductPageComponent } from './productpage';
 import { CommonModule } from '@angular/common';
 import { PageComponent } from './page';
+import { ProductModule } from '../product';
+import { SearchPageComponent } from './searchpage';
 
 const routes: Routes = [
   {
@@ -17,6 +19,10 @@ const routes: Routes = [
     component: ProductPageComponent,
     data: { title: 'Product Page' },
   },
+  {
+    path: 'search/:id',
+    component: SearchPageComponent,
+  },
   // {
   //   path: 'login',
   //   loadChildren: () =>
@@ -27,9 +33,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, CoreModule, RouterModule.forRoot(routes)],
+  imports: [
+    CommonModule,
+    CoreModule,
+    RouterModule.forRoot(routes),
+    ProductModule,
+  ],
   exports: [RouterModule],
-  declarations: [HomePageComponent, ProductPageComponent],
+  declarations: [HomePageComponent, ProductPageComponent, SearchPageComponent],
   providers: [],
 })
 export class LayoutModule {}

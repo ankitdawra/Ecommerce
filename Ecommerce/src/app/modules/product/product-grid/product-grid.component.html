@@ -1,0 +1,17 @@
+<div class="product-grid">
+  <div class="product-grid__image">
+    <img [src]="product.images?.[0]" />
+    <div class="product-grid__image__actions">
+      <i class="fa fa-shopping-bag product-grid_image__actions-cart"></i>
+      <i class="fa fa-eye product-grid_image__actions-view"></i>
+      <i class="fa fa-arrows-h product-grid_image__actions-compare"></i>
+      <i class="fa fa-heart-o product-grid_image__actions-wishlist"></i>
+    </div>
+  </div>
+  <div class="product-grid__price">
+    {{ product.variants[0]?.price }}
+  </div>
+  <div class="product-grid__desc">
+    {{ product.title }}
+  </div>
+</div>

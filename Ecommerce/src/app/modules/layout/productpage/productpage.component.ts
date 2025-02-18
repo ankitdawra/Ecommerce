@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../product/services';
 import { Product } from 'src/app/app.model';
-import { Observable } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { PageComponent } from '../page';
 import { SeoService } from '@app/core/services';
@@ -12,6 +12,7 @@ import { SeoService } from '@app/core/services';
 })
 export class ProductPageComponent extends PageComponent implements OnInit {
   product$: Observable<Product | any>;
+  similarProducts$: Observable<Product[] | any>;
   selectedVariant: any = {};
   currQuantity = 1;
   constructor(
@@ -22,10 +23,18 @@ export class ProductPageComponent extends PageComponent implements OnInit {
     super(activatedRoute, seoService);
   }
   ngOnInit() {
-    console.log('Product page init');
     super.ngOnInit();
     this.product$ = this.productService.getProductByCode(
       this.activatedRoute.snapshot.params['id']
+    );
+
+    this.similarProducts$ = this.product$.pipe(
+      map((product: any) => {
+        return product.tags || [];
+      }),
+      switchMap((tags: any) => {
+        return this.productService.searchProducts(tags[0]);
+      })
     );
   }
   selectVariant(variant: any) {

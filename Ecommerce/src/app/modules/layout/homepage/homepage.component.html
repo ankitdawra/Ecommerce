@@ -3,4 +3,25 @@
   <ng-template #banner let-item="item">
     <large-banner [item]="item"></large-banner>
   </ng-template>
+  <div class="container">
+    <div class="collections">
+      <div
+        class="collection"
+        *ngFor="let collection of collections; let index = index"
+      >
+        <img [src]="collection" />
+      </div>
+    </div>
+    <div
+      class="product-grids"
+      *ngIf="categoryProducts$ | async as categoryProducts"
+    >
+      <product-grid
+        class="product-grid"
+        *ngFor="let categoryProduct of categoryProducts"
+        [product]="categoryProduct"
+      >
+      </product-grid>
+    </div>
+  </div>
 </div>

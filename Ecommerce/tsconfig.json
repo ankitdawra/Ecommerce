@@ -24,7 +24,8 @@
     ],
     "strictPropertyInitialization": false,
     "paths": {
-      "@app/core/*": ["src/app/core/*"]
+      "@app/core/*": ["src/app/core/*"],
+      "@app/modules/*": ["src/app/modules/*"]
     },
   },
   "angularCompilerOptions": {

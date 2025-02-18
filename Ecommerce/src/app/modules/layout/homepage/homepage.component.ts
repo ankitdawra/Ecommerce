@@ -1,16 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { PageComponent } from '../page';
+import { ActivatedRoute } from '@angular/router';
+import { SeoService } from '@app/core/services';
+import { ProductService } from '../../product/services';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'homepage',
   templateUrl: './homepage.component.html',
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent extends PageComponent implements OnInit {
   items: any;
+  collections: any;
+  categoryProducts$: Observable<any>;
 
-  constructor() {}
+  constructor(
+    protected activatedRoute: ActivatedRoute,
+    protected seoService: SeoService,
+    protected productService: ProductService
+  ) {
+    super(activatedRoute, seoService);
+  }
 
   ngOnInit() {
+    super.ngOnInit();
     this.items = [
       {
         title: 'Summer Collection',
@@ -30,6 +44,23 @@ export class HomePageComponent implements OnInit {
         desc: 'Shop+ beautiful and functional shop, we included many options and shortcodes. This package has everythink if you need to start your business',
         src: 'assets/homepage-bg3.jpg',
       },
+    ];
+    this.loadCollections();
+    this.categoryProducts$ = this.productService
+      .getProductsByCategory('featured')
+      .pipe(
+        map((res: any) => {
+          console.log(res);
+          return res || [];
+        })
+      );
+  }
+
+  loadCollections() {
+    this.collections = [
+      'https://shop.azelab.com/images/home-1/banner-1.jpg',
+      'https://shop.azelab.com/images/home-1/banner-2.jpg',
+      'https://shop.azelab.com/images/home-1/banner-3.jpg',
     ];
   }
 }

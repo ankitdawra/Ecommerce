@@ -16,7 +16,7 @@ import {
   ButtonComponent,
   SeoComponent,
 } from './components';
-import { SearchService, HttpService, SeoService } from './services';
+import { HttpService, SeoService } from './services';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { SearchService, HttpService, SeoService } from './services';
     SeoComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, HttpClientModule],
-  providers: [SearchService, HttpService, SeoService],
+  providers: [HttpService, SeoService],
   exports: [
     FooterComponent,
     NavbarComponent,

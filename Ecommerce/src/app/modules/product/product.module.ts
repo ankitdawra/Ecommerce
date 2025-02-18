@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { ProductService } from './services';
+import { ProductGridComponent } from './product-grid';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [],
-  imports: [],
+  declarations: [ProductGridComponent],
+  imports: [CommonModule],
   providers: [ProductService],
-  exports: [],
+  exports: [ProductGridComponent],
 })
 export class ProductModule {}

@@ -1,0 +1,18 @@
+<div class="container">
+  <ng-container *ngIf="loader$ | async as loader">
+    <div class="loader">loader</div>
+  </ng-container>
+  <div class="product-grids" *ngIf="products$ | async as products">
+    <ng-container *ngIf="products.length; else empty">
+      <product-grid
+        class="product-grid"
+        *ngFor="let prod of products"
+        [product]="prod"
+      >
+      </product-grid>
+    </ng-container>
+    <ng-template #empty>
+      <h2>No products</h2>
+    </ng-template>
+  </div>
+</div>

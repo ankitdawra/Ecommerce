@@ -23,7 +23,7 @@ a {
   }
 }
 
-button {
+.button {
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
   font-weight: 300;
@@ -48,4 +48,17 @@ button {
     color: #fff;
     border: 1px solid #000;
   }
+}
+
+.loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  top: 0;
+  left: 0;
 }

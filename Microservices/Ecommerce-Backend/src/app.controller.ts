@@ -53,12 +53,17 @@ export class AppController {
 
   @Post('/api/dumpProducts')
   dumpProducts() {
-    console.log('Dumping productss');
+    console.log('Dumping products');
     return this.appService.dumpProducts(products);
   }
 
-  @Get('/api/getRelatedProducts/:id')
+  @Get('/api/product/search/:id')
   getRelatedProducts(@Param('id') id) {
     return this.appService.getRelatedProducts(id);
+  }
+
+  @Get('/api/product/category/:id')
+  getProductsByCategory(@Param('id') id) {
+    return this.appService.geProductsByCategory(id);
   }
 }

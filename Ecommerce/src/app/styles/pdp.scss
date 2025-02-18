@@ -118,5 +118,32 @@ product-page {
       display: flex;
       gap: 10px;
     }
+
+    &-recommendations {
+      margin-top: 50px;
+
+      > h4 {
+        text-align: center;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0px;
+          width: 100%;
+          height: 1px;
+          background: #ccc;
+        }
+      }
+
+      &__title {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        background: #fff;
+        z-index: 9;
+      }
+    }
   }
 }

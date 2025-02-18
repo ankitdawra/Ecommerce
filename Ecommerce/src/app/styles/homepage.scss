@@ -1,0 +1,31 @@
+// body {
+//   .container {
+//     padding: 0px;
+//   }
+// }
+
+homepage {
+  ~ app-seo {
+    display: none;
+  }
+
+  // .carousel-container {
+  //   padding: 10px;
+  // }
+
+  .collections {
+    display: flex;
+    margin: 50px 0;
+
+    .collection {
+      flex: 1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from '../../services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'search',
@@ -8,14 +8,11 @@ import { SearchService } from '../../services';
 export class SearchComponent implements OnInit {
   searchField: string = '';
 
-  constructor(private searchService: SearchService) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   searchProducts(): void {
-    console.log('search', this.searchField);
-    this.searchService.searchProducts(this.searchField).subscribe((data) => {
-      console.log('data', data);
-    });
+    this.router.navigate(['/search', this.searchField]);
   }
 }

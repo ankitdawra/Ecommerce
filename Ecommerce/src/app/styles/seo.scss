@@ -1,12 +1,14 @@
 app-seo {
-  background: #f2f4f7;
-  height: 70px;
-  line-height: 70px;
-  display: block;
+ > div {
+    background: #f2f4f7;
+    height: 70px;
+    line-height: 70px;
+    display: block;
 
-  .navbottom {
-    &-title {
-      font-size: 25px;
+    .navbottom {
+      &-title {
+        font-size: 25px;
+      }
     }
   }
 }

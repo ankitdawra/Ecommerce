@@ -34,4 +34,8 @@ export class AppService {
   getRelatedProducts(id) {
     return this.productServiceClient.send({ cmd: 'getRelatedProducts' }, id);
   }
+
+  geProductsByCategory(id) {
+    return this.productServiceClient.send({ cmd: 'geProductsByCategory' }, id);
+  }
 }
