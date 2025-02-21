@@ -4,7 +4,7 @@ metadata:
   name: ecommerce-backend
 spec:
   replicas: 1
-  stratergy:
+  strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
