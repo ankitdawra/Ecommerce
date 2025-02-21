@@ -75,6 +75,9 @@ jobs:
 
       - name: Apply Kubernetes Manifests
         run: |
+          kubectl delete ingress app-ingress
+          kubectl delete -f ./k8s/ecommerce.yaml
+          kubectl delete -f ./k8s/ecommerce-backend.yaml
           kubectl apply -f ./k8s/ecommerce.yaml
           kubectl apply -f ./k8s/ecommerce-backend.yaml
           kubectl apply -f ./k8s/ingress.yaml
