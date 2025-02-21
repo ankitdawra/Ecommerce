@@ -7,4 +7,5 @@ export type User = {
 export type UserDTO = {
   email: string;
   password: string;
+  name: string;
 };

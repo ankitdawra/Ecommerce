@@ -18,6 +18,7 @@ export const userReducer = createReducer(
     ...initialState,
     loginProcess: {
       error: payload.error,
+      currentUser: null,
     },
   })),
   on(UserActions.loginSuccess, () => ({
@@ -27,9 +28,17 @@ export const userReducer = createReducer(
     },
   })),
   on(UserActions.getCurrentUser, (state, payload) => {
-    console.log('temp called');
     return {
       ...state,
+    };
+  }),
+  on(UserActions.getCurrentUserFail, (state, payload) => {
+    return {
+      ...state,
+      currentUser: null,
+      loginProcess: {
+        error: payload.error,
+      },
     };
   })
 );

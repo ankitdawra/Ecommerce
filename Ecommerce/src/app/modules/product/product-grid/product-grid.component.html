@@ -1,4 +1,4 @@
-<div class="product-grid">
+<a class="product-grid" [routerLink]="'/product/' + product.id">
   <div class="product-grid__image">
     <img [src]="product.images?.[0]" />
     <div class="product-grid__image__actions">
@@ -14,4 +14,4 @@
   <div class="product-grid__desc">
     {{ product.title }}
   </div>
-</div>
+</a>

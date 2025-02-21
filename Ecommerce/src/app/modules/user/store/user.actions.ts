@@ -16,6 +16,12 @@ const loginFail = createAction('[User] Login Fail', props<any>());
 
 const temp = createAction('[User] Temp', props<any>());
 
+const register = createAction('[User] Register', props<any>());
+const registerSuccess = createAction('[User] Register Success');
+const registerFail = createAction('[User] Register Fail', props<any>());
+
+const logout = createAction('[User] Logout');
+
 export {
   getCurrentUser,
   getCurrentUserSuccess,
@@ -24,4 +30,8 @@ export {
   loginSuccess,
   loginFail,
   temp,
+  register,
+  registerSuccess,
+  registerFail,
+  logout,
 };

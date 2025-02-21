@@ -62,7 +62,7 @@ export class NavbarComponent implements OnInit {
       {
         id: 2,
         name: 'Products',
-        link: '/products',
+        link: '/search/mascara',
         subCategories: [
           { id: 21, name: 'Sub3', link: '/sub1' },
           { id: 22, name: 'Sub4', link: '/sub2' },

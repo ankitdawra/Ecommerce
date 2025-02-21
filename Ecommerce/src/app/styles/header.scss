@@ -23,11 +23,30 @@
     display: flex;
     gap: 50px;
 
-    > span {
+    > div {  
       display: flex;
       gap: 20px;
+    }
+
+    > span {
+      display: flex;
+      gap: 10px;
       cursor: pointer;
       position: relative;
+      align-items: center;
+    }
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      height: 50px;
+      position: relative;
+      left: -50px;
+      cursor: pointer;
     }
   }
 

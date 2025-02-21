@@ -15,6 +15,7 @@ product-grid {
   &__image {
     position: relative;
     cursor: pointer;
+    min-height: 200px;
 
     > img {
       width: 100%;

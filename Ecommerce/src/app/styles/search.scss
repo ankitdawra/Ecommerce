@@ -1,10 +1,22 @@
 .search-box {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+
   input {
     padding: 10px;
     border: 1px solid;
     width: 200px;
     font-style: italic;
+    padding-right: 30px;
   }
+
+   i {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+   }
 }
 
 search-page {

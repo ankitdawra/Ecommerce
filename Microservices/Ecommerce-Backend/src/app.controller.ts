@@ -17,20 +17,6 @@ import { products } from './dump';
 export class AppController {
   constructor(private appService: AppService) {}
 
-  // @Post('auth/login')
-  // userSignIn(@Body() userDTO: UserDTO) {
-  //   return this.appService.userSignIn(userDTO).pipe(
-  //     catchError((error) => {
-  //       throw new UnauthorizedException(error);
-  //     }),
-  //   );
-  // }
-
-  // @Get('auth/currentUser')
-  // getCurrentUser() {
-  //   return this.appService.getCurrentUser();
-  // }
-
   @Get('/')
   healthCheck() {
     return true;

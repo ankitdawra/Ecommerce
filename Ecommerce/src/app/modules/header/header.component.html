@@ -8,19 +8,23 @@
             <span> USD EUR </span>
           </div>
           <div>
-            <span class="header__contact__number"
-              >+ 1 (800) 2364 332 23 16</span
+            <span class="header__contact__number">
+              <i class="fa fa-phone"></i>
+              + 1 (800) 2364 332 23 16
+            </span>
+            <span class="header__contact__email">
+              <i class="fa fa-envelope-o"></i> your@email.com</span
             >
-            <span class="header__contact__email">your@email.com</span>
           </div>
         </div>
         <div class="header__actions">
           <ng-container *ngIf="currentUser$ | async as user; else login">
             <span>{{ user.name }}</span>
-            <span>Logout</span>
+            <span (click)="logout()">Logout</span>
           </ng-container>
           <ng-template #login>
             <span (click)="toggleLoginPopup($event)">
+              <i class="fa fa-sign-in" aria-hidden="true"></i>
               Login
               <ng-container *ngIf="loginPopup">
                 <popover (hide)="hidePopup()">
@@ -29,15 +33,17 @@
               </ng-container>
             </span>
           </ng-template>
-          <span>Wishlist</span>
-          <span>Compare</span>
+          <span><i class="fa fa-heart-o" aria-hidden="true"></i> Wishlist</span>
+          <span><i class="fa fa-random" aria-hidden="true"></i> Compare</span>
         </div>
       </div>
     </div>
     <div class="header__main">
       <search></search>
-      <!-- <app-logo></app-logo> -->
-      <!-- <app-mini-cart></app-mini-cart> -->
+      <a [routerLink]="'/'">
+        <img src="https://shop.azelab.com/images/logo.svg" />
+      </a>
+      <div>helo</div>
     </div>
   </div>
   <div class="header__nav">

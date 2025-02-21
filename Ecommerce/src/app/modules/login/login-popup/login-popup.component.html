@@ -1,32 +1,105 @@
 <div class="login-popup">
-  <div class="login-popup__heading">Sign in</div>
-  <div class="login-popup__container">
-    <div class="login-popup__sso">
-      <button class="login-popup__sso__facebook">Facebook</button>
-      <button class="login-popup__sso__twitter">Twitter</button>
+  <ng-container *ngIf="mode === Modes.login">
+    <div class="login-popup__heading">Sign in</div>
+    <div class="login-popup__container">
+      <div class="login-popup__sso">
+        <span class="login-popup__sso__title">Sign in using</span>
+        <button class="login-popup__sso__facebook">
+          <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
+        </button>
+        <button class="login-popup__sso__twitter">
+          <i class="fa fa-twitter" aria-hidden="true"></i>Twitter
+        </button>
+      </div>
+      <div class="login-popup__custom">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(Modes.login)">
+          <div class="login-popup__custom__field">
+            <input
+              type="text"
+              placeholder="Email / Login"
+              id="email"
+              formControlName="email"
+            />
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </div>
+          <div class="login-popup__custom__field">
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              formControlName="password"
+            />
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+          </div>
+          <div class="login-popup__custom__remember">
+            <input type="checkbox" id="checkbox" />
+            <label for="checkbox">Remember me</label>
+          </div>
+          <button
+            type="submit"
+            class="button button--secondary login-popup__custom__btn"
+            [disabled]="loginForm.invalid"
+          >
+            Login
+          </button>
+        </form>
+        <a class="login-popup__custom__forgot"></a>
+      </div>
     </div>
-    <div class="login-popup__custom">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input
-          type="text"
-          placeholder="Email / Login"
-          id="email"
-          formControlName="email"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          id="password"
-          formControlName="password"
-        />
-        <div class="login-popup__custom--remember">
-          <input type="checkbox" id="checkbox" />
-          <label for="checkbox">Remember me</label>
-        </div>
-        <button type="submit" [disabled]="loginForm.invalid">Sign up</button>
-      </form>
-      <a class="login-popup__custom__forgot"></a>
-      <button class="login-popup__custom__register">Register</button>
+    <div class="login-popup__bottom">
+      <button
+        class="button button--primary"
+        (click)="updateMode(Modes.register)"
+      >
+        Register
+      </button>
     </div>
-  </div>
+  </ng-container>
+  <ng-container *ngIf="mode === Modes.register">
+    <div class="login-popup__heading">Sign up</div>
+    <div class="login-popup__container">
+      <div class="login-popup__sso">
+        <button class="login-popup__sso__facebook">Facebook</button>
+        <button class="login-popup__sso__twitter">Twitter</button>
+      </div>
+      <div class="login-popup__custom">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit(Modes.register)">
+          <input
+            type="text"
+            placeholder="Email"
+            id="email"
+            formControlName="email"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            formControlName="password"
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+          />
+          <input
+            type="text"
+            placeholder="Name"
+            id="name"
+            formControlName="name"
+          />
+          <button type="submit" [disabled]="registerForm.invalid">
+            Sign up
+          </button>
+        </form>
+        <a class="login-popup__custom__forgot"></a>
+        <button
+          class="login-popup__custom__register"
+          (click)="updateMode(Modes.login)"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </ng-container>
 </div>

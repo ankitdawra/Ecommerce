@@ -14,9 +14,13 @@ export class UserEntity {
   @Column()
   name: string;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   address: string;
 
-  @Column()
+  @Column({
+    nullable: true,
+  })
   pincode: string;
 }

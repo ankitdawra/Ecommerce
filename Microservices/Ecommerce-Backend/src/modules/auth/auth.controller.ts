@@ -15,7 +15,7 @@ import { UserDTO } from 'src/types/user.type';
 import { JwtService } from '@nestjs/jwt';
 import { AuthGuard } from './guards/auth.guard';
 
-@Controller('auth')
+@Controller('api/auth')
 export class AuthController {
   constructor(
     private authService: AuthService,
@@ -25,8 +25,7 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @Post('login')
   async signIn(@Body() userDTO: UserDTO): Promise<{ access_token: string }> {
-    Logger.log('hey');
-    Logger.log(userDTO);
+    console.log('sigining in');
     if (!userDTO.email || !userDTO.password) {
       throw new UnauthorizedException();
     }
@@ -36,19 +35,28 @@ export class AuthController {
     }
     const payload = { email: user.email };
     return {
-      access_token: await this.jwtService.signAsync(payload),
+      access_token: await this.jwtService.signAsync(payload, {
+        secret: process.env.JWT_SECRET,
+      }),
     };
   }
 
   @UseGuards(AuthGuard)
   @Get('profile')
   async getProfile(@Request() req) {
-    console.log('inside controller', req);
+    console.log('getting profile');
     const user = req.user;
     const userInfo = await this.authService.findUser(req.user?.email);
+    console.log(user, userInfo);
     return {
       ...user,
       ...userInfo,
     };
+  }
+
+  @Post('register')
+  async register(@Body() userDTO: UserDTO): Promise<UserDTO> {
+    console.log('registering');
+    return await this.authService.register(userDTO);
   }
 }

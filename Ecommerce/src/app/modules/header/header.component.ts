@@ -4,7 +4,7 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import { currentUser, getCurrentUser } from '../user';
+import { currentUser, getCurrentUser, logout } from '../user';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -22,9 +22,6 @@ export class HeaderComponent implements OnInit {
     this.currentUser$.subscribe((user) => {
       console.log(user);
     });
-    // this.userService.getCurrentUser().subscribe((user) => {
-    //   console.log(user);
-    // });
   }
 
   toggleLoginPopup(e: Event): void {
@@ -36,7 +33,7 @@ export class HeaderComponent implements OnInit {
     this.loginPopup = false;
   }
 
-  hey(): void {
-    console.log('hey');
+  logout(): void {
+    this.store.dispatch(logout());
   }
 }
