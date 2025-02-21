@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../product/services';
 import { Product } from 'src/app/app.model';
-import { Observable, map, switchMap, tap } from 'rxjs';
+import { Observable, map, shareReplay, switchMap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { PageComponent } from '../page';
 import { SeoService } from '@app/core/services';
@@ -24,9 +24,9 @@ export class ProductPageComponent extends PageComponent implements OnInit {
   }
   ngOnInit() {
     super.ngOnInit();
-    this.product$ = this.productService.getProductByCode(
-      this.activatedRoute.snapshot.params['id']
-    );
+    this.product$ = this.productService
+      .getProductByCode(this.activatedRoute.snapshot.params['id'])
+      .pipe(shareReplay(1));
 
     this.similarProducts$ = this.product$.pipe(
       map((product: any) => {
