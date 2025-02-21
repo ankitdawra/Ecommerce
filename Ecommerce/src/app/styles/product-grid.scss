@@ -5,10 +5,14 @@
 }
 
 product-grid {
-  width: 25%;
   display: block;
   padding: 0 20px;
   box-sizing: border-box;
+  width: 50%;
+
+  @include media-breakpoint-up(md) {
+    width: 25%;
+  }
 }
 
 .product-grid {

@@ -22,6 +22,7 @@ const routes: Routes = [
   {
     path: 'search/:id',
     component: SearchPageComponent,
+    data: { title: 'Search Page' },
   },
   // {
   //   path: 'login',

@@ -1,5 +1,5 @@
-<div *ngIf="seoData$ | async as seoData">
+<div class="seo-wrapper" *ngIf="seoData$ | async as seoData">
   <div class="container" *ngIf="!isEmpty">
-    <div class="container-title">{{ seoData.title }}</div>
+    <div class="seo-wrapper__title">{{ seoData.title }}</div>
   </div>
 </div>

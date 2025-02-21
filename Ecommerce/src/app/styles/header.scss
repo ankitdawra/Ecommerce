@@ -4,17 +4,17 @@
   navbar {
     @include container-lg;
 
-    padding: 20px 0;
     display: block;
   }
 
   &__top {
-    border-bottom: 2px solid #000;
+    border-bottom: 1px solid #000;
 
     &__container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      height: 50px;
+      justify-content: space-around;
     }
   }
 
@@ -37,15 +37,59 @@
     }
   }
 
+  &__data {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
   &__main {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    height: 80px;
+    position: relative;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column-reverse;
+      height: unset;
+      padding: 20px;
+      gap: 10px;
+    }
+
+    search {
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        left: 50px;
+      }
+    }
+
+    .cart {
+      padding: 10px 30px 10px 50px;
+      border: 1px solid lightgrey;
+      position: absolute;
+      right: 50px;
+      font-style: italic;
+
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+
+      i {
+        position: absolute;
+        height: 100%;
+        top: 0px;
+        display: flex;
+        align-items: center;
+        left: 0px;
+        padding: 0 10px;
+        background: $primary-color;
+        color: white;
+      }
+    }
 
     img {
       height: 50px;
-      position: relative;
-      left: -50px;
       cursor: pointer;
     }
   }

@@ -1,32 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../product/services';
 import {
   Observable,
-  delay,
   distinctUntilChanged,
   finalize,
   of,
   switchMap,
-  tap,
 } from 'rxjs';
-import { Product } from 'src/app/app.model';
+import { PageComponent } from '../page';
+import { SeoService } from '@app/core/services';
 
 @Component({
   selector: 'search-page',
   templateUrl: './searchpage.component.html',
 })
-export class SearchPageComponent implements OnInit {
+export class SearchPageComponent extends PageComponent {
   products$: Observable<any>;
   loader$: Observable<boolean> = of(true);
   searchQuery: string;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private productService: ProductService
-  ) {}
+    protected activatedRoute: ActivatedRoute,
+    private productService: ProductService,
+    protected seoService: SeoService
+  ) {
+    super(activatedRoute, seoService);
+  }
 
   ngOnInit(): void {
+    super.ngOnInit();
     this.products$ = this.activatedRoute.params.pipe(
       distinctUntilChanged(),
       switchMap((params) => {
