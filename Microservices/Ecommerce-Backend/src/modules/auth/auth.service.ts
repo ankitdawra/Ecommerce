@@ -6,8 +6,11 @@ import { UserService } from '../user';
 export class AuthService {
   constructor(private userService: UserService) {}
 
-  async findUser(email: string): Promise<User | undefined> {
-    return this.userService.findUser(email);
+  async findUser(
+    email: string,
+    getAllParams = false,
+  ): Promise<User | undefined> {
+    return this.userService.findUser(email, getAllParams);
   }
 
   async register(user: UserDTO): Promise<any> {

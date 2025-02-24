@@ -11,3 +11,8 @@ export const loginProcess = createSelector(
   userState,
   (state) => state.loginProcess
 );
+
+export const onRegisterSuccess = createSelector(
+  userState,
+  (state) => state.loginProcess.registerSuccess
+);

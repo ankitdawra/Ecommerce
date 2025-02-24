@@ -1,16 +1,5 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Logger,
-  Param,
-  Post,
-  UnauthorizedException,
-  UseFilters,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { catchError, throwError } from 'rxjs';
-import { UserDTO } from './types/user.type';
 import { products } from './dump';
 
 @Controller()
@@ -50,6 +39,6 @@ export class AppController {
 
   @Get('/api/product/category/:id')
   getProductsByCategory(@Param('id') id) {
-    return this.appService.geProductsByCategory(id);
+    return this.appService.getProductsByCategory(id);
   }
 }

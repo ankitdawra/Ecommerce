@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'carousel',
@@ -9,6 +16,8 @@ export class CarouselComponent {
   @Input() template: any;
   @Input() type: string = 'default';
   @ViewChild('carouselContainer') carouselContainer: ElementRef;
+  @Output() onChangeItem = new EventEmitter<any>();
+
   activeItem: number = 0;
   totalWidth = 0;
   constructor() {}
@@ -42,8 +51,17 @@ export class CarouselComponent {
         this.activeItem
       ].style.opacity = 1;
     } else {
-      this.carouselContainer.nativeElement.scrollLeft +=
-        direction === 'left' ? -200 : 200;
+      if (direction === 'left' && this.activeItem !== 0) {
+        this.activeItem -= 1;
+      } else if (
+        direction === 'right' &&
+        this.activeItem !== this.items.length - 1
+      ) {
+        this.activeItem += 1;
+      }
+      this.onChangeItem.emit(this.activeItem);
+      // this.carouselContainer.nativeElement.scrollLeft +=
+      //   direction === 'left' ? -200 : 200;
     }
   }
 }

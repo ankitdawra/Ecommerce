@@ -34,21 +34,26 @@ export class AppController {
 
   @MessagePattern({ cmd: 'getRelatedProducts' })
   async getRelatedProducts(id) {
-    let results = await this.searchService.getRelatedProducts(id);
-    if (results.length) {
-      return await this.appService.getProductsById(results).toArray();
+    try {
+      let results = await this.searchService.getRelatedProducts(id);
+      if (results.length) {
+        return await this.appService.getProductsById(results).toArray();
+      }
+      return results;
+    } catch (error) {
+      console.log('Error', error);
+      return [];
     }
-    return results;
   }
 
-  @MessagePattern({ cmd: 'geProductsByCategory' })
-  async geProductsByCategory(id) {
+  @MessagePattern({ cmd: 'getProductsByCategory' })
+  async getProductsByCategory(id) {
     console.log('Getting products by', id);
     const products = await this.getProducts();
     // console.log('productsss', products);
     let random;
     if (products.length) {
-      random = this.getRandomProducts(products, 2);
+      random = this.getRandomProducts(products, 8);
       console.log(random.length);
     }
     return random;

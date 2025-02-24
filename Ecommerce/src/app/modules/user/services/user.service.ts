@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@app/core/services';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +17,7 @@ export class UserService {
   }
 
   register(data: any): Observable<any> {
+    // return of(true);
     return this.httpService.post('/auth/register', data);
   }
 }

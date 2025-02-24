@@ -1,5 +1,15 @@
-<div class="carousel-container" *ngIf="items.length" #carouselContainer>
-  <div class="carousel-container-item" *ngFor="let item of items">
+<div
+  class="carousel-container"
+  *ngIf="items.length"
+  #carouselContainer
+  [class]="type"
+>
+  <div
+    class="carousel-container-item"
+    *ngFor="let item of items; let i = index"
+    ngClass="{{ i === activeItem ? 'active' : '' }}"
+    (click)="activeItem = i; onChangeItem.emit(i)"
+  >
     <ng-container
       *ngTemplateOutlet="template; context: { item: item }"
     ></ng-container>

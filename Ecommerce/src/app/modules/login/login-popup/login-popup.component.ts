@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { login, register } from '../../user';
+import { login, register, onRegisterSuccess } from '../../user';
 import { Store } from '@ngrx/store';
 
 type AuthMode = 'login' | 'register';
@@ -31,12 +31,15 @@ export class LoginPopupComponent implements OnInit {
       confirmPassword: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
     });
+
+    this.store.select(onRegisterSuccess).subscribe(() => {
+      this.mode = Modes.login;
+    });
   }
 
   onSubmit(mode: AuthMode): void {
     if (mode === Modes.login) {
       if (this.loginForm.valid) {
-        console.log(this.loginForm.value);
         this.store.dispatch(login({ data: this.loginForm.value }));
       }
     } else {
@@ -47,7 +50,6 @@ export class LoginPopupComponent implements OnInit {
         ) {
           return alert('Password and confirm password should be same');
         }
-        console.log(this.registerForm.value);
         const registerDto = {
           email: this.registerForm.value.email,
           password: this.registerForm.value.password,

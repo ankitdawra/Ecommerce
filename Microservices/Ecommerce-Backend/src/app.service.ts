@@ -1,6 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { UserDTO } from './types/user.type';
 
 @Injectable()
 export class AppService {
@@ -27,7 +26,6 @@ export class AppService {
   }
 
   dumpProducts(products) {
-    console.log('Service');
     return this.productServiceClient.send({ cmd: 'dumpProducts' }, products);
   }
 
@@ -35,7 +33,7 @@ export class AppService {
     return this.productServiceClient.send({ cmd: 'getRelatedProducts' }, id);
   }
 
-  geProductsByCategory(id) {
-    return this.productServiceClient.send({ cmd: 'geProductsByCategory' }, id);
+  getProductsByCategory(id) {
+    return this.productServiceClient.send({ cmd: 'getProductsByCategory' }, id);
   }
 }

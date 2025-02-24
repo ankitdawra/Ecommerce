@@ -1,5 +1,5 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
-import { MongoClient, Db, ServerApiVersion } from 'mongodb';
+import { MongoClient, Db } from 'mongodb';
 
 @Injectable()
 export class DatabaseProvider implements OnModuleInit, OnModuleDestroy {
@@ -23,8 +23,8 @@ export class DatabaseProvider implements OnModuleInit, OnModuleDestroy {
 
   getCollection<T>(collectionName: string) {
     return this.db
-      .collection<T>(collectionName)
-      .find({}, { projection: { _id: 0 } })
+      ?.collection<T>(collectionName)
+      ?.find({}, { projection: { _id: 0 } })
       ?.toArray();
   }
 

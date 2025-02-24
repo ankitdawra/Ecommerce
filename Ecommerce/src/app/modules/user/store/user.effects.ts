@@ -1,20 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, act, createEffect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { UserService } from '../services';
 import * as UserActions from './user.actions';
-import {
-  EMPTY,
-  Observable,
-  catchError,
-  from,
-  map,
-  merge,
-  mergeMap,
-  noop,
-  of,
-  switchMap,
-  tap,
-} from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 
 @Injectable()
 export class UserEffects {
@@ -51,6 +39,7 @@ export class UserEffects {
             return UserActions.getCurrentUser();
           }),
           catchError(({ error }) => {
+            window.alert(error?.message);
             localStorage.removeItem('access_token');
             return of(
               UserActions.loginFail({
@@ -69,8 +58,12 @@ export class UserEffects {
       map((action) => action.data),
       switchMap((user) => {
         return this.userService.register(user).pipe(
+          tap(() => {
+            window.alert('Registration successful');
+          }),
           map(() => UserActions.registerSuccess()),
           catchError(({ error }) => {
+            window.alert(error?.message);
             return of(UserActions.registerFail({ error }));
           })
         );

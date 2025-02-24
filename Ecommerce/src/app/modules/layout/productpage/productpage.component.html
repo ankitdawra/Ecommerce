@@ -1,9 +1,13 @@
 <div class="product container" *ngIf="product$ | async as product">
   <div class="product-details">
     <div class="product-image">
-      <img [src]="product.images?.[0]" [alt]="product.title" />
+      <img [src]="product.images?.[activeItem]" [alt]="product.title" />
       <div class="product-image-gallery" *ngIf="product.images.length > 1">
-        <carousel [items]="product.images" [template]="productImage"></carousel>
+        <carousel
+          [items]="product.images"
+          [template]="productImage"
+          (onChangeItem)="onChangeItem($event)"
+        ></carousel>
         <ng-template #productImage let-image="item">
           <img [src]="image" />
         </ng-template>
@@ -13,11 +17,11 @@
     <div class="product-info">
       <div class="product-name">{{ product.title }}</div>
       <div class="product-availability">
-        <div class="product-price">{{ product.variants[0]?.price }}</div>
+        <div class="product-price">{{ product.variants?.[0]?.price }}</div>
         <div class="product-stock">
           Availability:
           <span class="product-stock--status">{{
-            product.variants[0]?.stockStatus
+            product.variants?.[0]?.stockStatus
           }}</span>
         </div>
       </div>
@@ -25,7 +29,7 @@
         <div class="product-code">
           Product Code:
           <span class="product-meta-value">{{
-            product.variants[0]?.code
+            product.variants?.[0]?.code
           }}</span>
         </div>
         <div class="product-tags">

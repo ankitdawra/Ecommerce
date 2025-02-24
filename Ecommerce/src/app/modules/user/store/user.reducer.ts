@@ -5,6 +5,7 @@ const initialState = {
   currentUser: null,
   loginProcess: {
     error: null,
+    registerSuccess: false,
   },
 };
 
@@ -18,13 +19,14 @@ export const userReducer = createReducer(
     ...initialState,
     loginProcess: {
       error: payload.error,
-      currentUser: null,
+      registerSuccess: false,
     },
   })),
   on(UserActions.loginSuccess, () => ({
     ...initialState,
     loginProcess: {
       error: null,
+      registerSuccess: false,
     },
   })),
   on(UserActions.getCurrentUser, (state, payload) => {
@@ -38,6 +40,16 @@ export const userReducer = createReducer(
       currentUser: null,
       loginProcess: {
         error: payload.error,
+        registerSuccess: false,
+      },
+    };
+  }),
+  on(UserActions.registerSuccess, (state, payload) => {
+    return {
+      ...state,
+      loginProcess: {
+        error: null,
+        registerSuccess: true,
       },
     };
   })

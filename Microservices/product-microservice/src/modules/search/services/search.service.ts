@@ -40,6 +40,9 @@ export class SearchService {
         title: product.title,
         description: product.description,
         category: product.category,
+        brand: product.brand,
+        features: product.features,
+        tags: product.tags,
       };
       return [{ index: { _index: this.index } }, doc];
     });
@@ -57,7 +60,14 @@ export class SearchService {
         query: {
           multi_match: {
             query,
-            fields: ['title', 'description', 'category'],
+            fields: [
+              'title',
+              'description',
+              'category',
+              'brand',
+              'features',
+              'tags',
+            ],
             fuzziness: 'AUTO',
           },
         },

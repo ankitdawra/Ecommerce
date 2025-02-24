@@ -3,10 +3,25 @@ carousel {
   position: relative;
 
   .carousel-container {
+    $root: &;
+
     overflow: hidden;
     max-width: 100%;
     white-space: nowrap;
     overflow-x: scroll;
+
+    &.default {
+      padding-bottom: 30px;
+
+      .carousel-container-item {
+        opacity: 0.5;
+        width: fit-content;
+      }
+
+      .active {
+        opacity: 1;
+      }
+    }
 
     &-item {
       display: inline-block;

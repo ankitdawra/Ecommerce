@@ -5,6 +5,7 @@
     @include container-lg;
 
     display: block;
+    font-size: 0.8em;
   }
 
   &__top {
@@ -14,7 +15,11 @@
       display: flex;
       align-items: center;
       height: 50px;
-      justify-content: space-around;
+      justify-content: center;
+
+      @include media-breakpoint-up(md) {
+        justify-content: space-between;
+      }
     }
   }
 
