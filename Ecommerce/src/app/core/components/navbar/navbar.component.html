@@ -1,11 +1,17 @@
-<div class="navbar__menu">
-  <a
-    *ngFor="let item of navItems"
-    (mouseenter)="onHover(item)"
-    (mouseleave)="onHover()"
-  >
-    <navbar-item [item]="item" [activeItem]="acitveNavItem"></navbar-item>
-  </a>
+<div class="navbar">
+  <div class="navbar__heading" (click)="toggleMenu()">
+    MENU
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </div>
+  <div class="navbar__menu {{ showMenu ? 'show' : '' }}">
+    <a
+      *ngFor="let item of navItems"
+      (mouseenter)="onHover(item)"
+      (mouseleave)="onHover()"
+    >
+      <navbar-item [item]="item" [activeItem]="acitveNavItem"></navbar-item>
+    </a>
+  </div>
   <!-- <ng-container *ngIf="acitveNavItem">
     <div class="navbar__submenu">
       <a *ngFor="let subItem of acitveNavItem?.subCategories">{{

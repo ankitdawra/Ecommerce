@@ -3,4 +3,5 @@ export interface NavItem {
   name: string;
   link: string;
   subCategories?: NavItem[];
+  icon?: string;
 }

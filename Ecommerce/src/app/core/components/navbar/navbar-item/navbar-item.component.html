@@ -1,5 +1,10 @@
 <ng-container *ngIf="item">
-  <div [routerLink]="item.link">{{ item.name }}</div>
+  <div [routerLink]="item.link">
+    <span *ngIf="item.icon" class="navbar__icon">
+      <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>
+    </span>
+    {{ item.name }}
+  </div>
   <ng-container *ngIf="activeItem && activeItem.id === item.id">
     <div class="navbar__submenu">
       <navbar [isSubNav]="true" [navList]="activeItem?.subCategories"></navbar>

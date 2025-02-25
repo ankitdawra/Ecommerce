@@ -15,6 +15,7 @@ import { NavItem } from '../../model';
 export class NavbarComponent implements OnInit {
   initialNavItems: NavItem[] = [];
   acitveNavItem: NavItem | null = null;
+  showMenu: boolean = false;
   @Input() navList: NavItem[] | undefined;
   @Input() isSubNav: boolean = false;
 
@@ -58,19 +59,31 @@ export class NavbarComponent implements OnInit {
             ],
           },
         ],
+        icon: 'laptop',
       },
       {
         id: 2,
-        name: 'Products',
+        name: 'Pages',
         link: '/search/mascara',
         subCategories: [
           { id: 21, name: 'Sub3', link: '/sub1' },
           { id: 22, name: 'Sub4', link: '/sub2' },
         ],
+        icon: 'user-o',
       },
-      { id: 3, name: 'Contact', link: '/contact' },
+      { id: 3, name: 'Women', link: '/contact', icon: 'user-o' },
+      {
+        id: 4,
+        name: 'Electronics',
+        link: '/search/electronics',
+        icon: 'laptop',
+      },
+      { id: 5, name: 'Blog', link: '/search/all', icon: 'pencil' },
+      { id: 6, name: 'Popular', link: '/search/all', icon: 'coffee' },
+      { id: 7, name: 'Contact us', link: '/search/all', icon: 'phone' },
+      { id: 8, name: 'Sale', link: '/search/all', icon: 'book' },
     ];
-    // this.acitveNavItem = this.initialNavItems[0];
+    // this.acitveNavItem = this.initialNavItems[0].subCategories?.[0] as any;
     this.cd.markForCheck();
   }
 
@@ -81,5 +94,9 @@ export class NavbarComponent implements OnInit {
       this.acitveNavItem = null;
     }
     this.cd.markForCheck();
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
   }
 }

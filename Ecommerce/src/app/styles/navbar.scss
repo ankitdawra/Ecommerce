@@ -3,9 +3,30 @@ navbar {
 }
 
 .navbar {
+  &__heading {
+    display: block;
+    background-color: $primary-color;
+    text-align: center;
+    padding: 20px 0;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+
   &__menu, &__submenu {
     display: flex;
     justify-content: space-around;
+    background-color: black;
+    flex-direction: column;
+
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+    }
 
     > a {
       flex: 1;
@@ -26,15 +47,40 @@ navbar {
     }
   }
 
+  &__menu {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+
+    &.show {
+      display: flex;
+    }
+  }
+
   &__submenu {
     position: absolute;
     width: 100%;
     flex-direction: column;
     background-color: #000;
-    top: 59px;
+    top: 50px;
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
 
     navbar {
       margin: unset;
+    }
+
+    .navbar__heading {
+      display: none;
+    }
+  }
+
+  &__icon {
+    i {
+      margin-right: 3px;
+      color: darkgrey;
     }
   }
 
