@@ -50,7 +50,7 @@ export class HomePageComponent extends PageComponent implements OnInit {
       .getProductsByCategory('featured')
       .pipe(
         map((res: any) => {
-          console.log(res);
+          console.log('test', res);
           return res || [];
         })
       );
