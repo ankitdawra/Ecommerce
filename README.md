@@ -12,10 +12,15 @@ A cloud-native platform designed for seamless online shopping, deployed on Googl
     Detailed product descriptions, images etc.
 
    
-    **StoreFront UI -**
+**StoreFront UI -**
    
-   ![image](https://github.com/user-attachments/assets/83e2a8b8-5670-4a54-892c-d1d61aa6c869)
+![image](https://github.com/user-attachments/assets/83e2a8b8-5670-4a54-892c-d1d61aa6c869)
 
-   
-    **Recording Link** - https://drive.google.com/file/d/1Yte8VPGDvjLwqeiXtpGDw7qMe8ed_fwH/view?usp=sharing
+<br/>
+<br/>
+
+
+**Recording Link** - 
+
+https://drive.google.com/file/d/1Yte8VPGDvjLwqeiXtpGDw7qMe8ed_fwH/view?usp=sharing
    
