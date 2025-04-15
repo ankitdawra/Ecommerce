@@ -10,3 +10,12 @@ A cloud-native platform designed for seamless online shopping, deployed on Googl
 2. Product Catalog
     Browse and search products efficiently using Elasticsearch.
     Detailed product descriptions, images etc.
+
+   
+    **StoreFront UI -**
+   
+   ![image](https://github.com/user-attachments/assets/83e2a8b8-5670-4a54-892c-d1d61aa6c869)
+
+   
+    **Recording Link** - https://drive.google.com/file/d/1Yte8VPGDvjLwqeiXtpGDw7qMe8ed_fwH/view?usp=sharing
+   
