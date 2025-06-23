@@ -3,6 +3,14 @@
 - A cloud-native platform designed for seamless online shopping, deployed on Google Cloud Platform (GCP) using Google Kubernetes Engine (GKE). 
 - It is built with a modern microservices architecture for scalability, high availability, and performance.
 
+<br/>
+
+### Please visit the below link to see recording of working application
+
+https://drive.google.com/file/d/1Yte8VPGDvjLwqeiXtpGDw7qMe8ed_fwH/view?usp=sharing
+
+<br/>
+
 ### Key Features
 
 1. User Management
@@ -20,8 +28,6 @@
 <br/>
 <br/>
 
-
-### Recording Link
-
-https://drive.google.com/file/d/1Yte8VPGDvjLwqeiXtpGDw7qMe8ed_fwH/view?usp=sharing
+## High level architecture diagram of the application
+![image](https://github.com/user-attachments/assets/a4484d8b-f596-4928-8a37-08d503c90f6c)
    
